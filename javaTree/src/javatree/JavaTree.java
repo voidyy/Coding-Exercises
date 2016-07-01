@@ -55,8 +55,8 @@ public class JavaTree {
        
         System.out.println("\ntraverseInOrder: ");
         traverseInOrder(root);
-        System.out.println("\nprnOutterTree: ");
-        prnOutterTree(root);
+        System.out.println("\nprnOutterTreeRoot: ");
+        prnOutterTreeRoot(root);
         
         System.out.println("\nprnZigzag: ");
         prnZigzag(root);
@@ -88,7 +88,7 @@ public class JavaTree {
         traverseInOrder(root.right);
     }
     
-    static void prnOutterTree(Node root) {
+    static void prnOutterTreeRoot(Node root) {
         if (root == null)
             return;
         if (root.left != null) {
@@ -101,6 +101,13 @@ public class JavaTree {
         }
     }
 
+    static void prnOutterLeft(Node root) {
+        if (root == null)
+            return;
+        prnOutterLeft(root.left);
+        System.out.print(root.val  + " ");
+    }
+    
     
     static void prnZigzag(Node root) {
         Stack<Node> stackL = new Stack();
@@ -130,22 +137,5 @@ public class JavaTree {
             System.out.println();
         }
         System.out.println();
-    }
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    static void prnOutterLeft(Node root) {
-        if (root == null)
-            return;
-        prnOutterLeft(root.left);
-        System.out.print(root.val  + " ");
     }
 }
